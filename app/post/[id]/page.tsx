@@ -12,10 +12,12 @@ interface PageProps {
   params: { id: string }
 }
 
+const BLOG_API_URL = process.env.NEXT_PUBLIC_BLOG_API_URL;
+
 export default async function PostPage({ params }: PageProps) {
   // Aqui, params NÃO é uma Promise, deve estar disponível diretamente!
   const {id} = await params;
-  const res = await fetch(`https://blog.ted.com/wp-json/wp/v2/posts/${id}`, { cache: 'no-store' });
+  const res = await fetch(`${BLOG_API_URL}/posts/${id}`, { cache: 'no-store' });
 
   if (!res.ok) {
     notFound();

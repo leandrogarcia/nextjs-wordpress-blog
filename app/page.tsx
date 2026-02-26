@@ -3,10 +3,11 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const PER_PAGE = 10;
+const BLOG_API_URL = process.env.NEXT_PUBLIC_BLOG_API_URL;
 
 async function getPosts(page = 1) {
   const res = await fetch(
-    `https://blog.ted.com/wp-json/wp/v2/posts?per_page=${PER_PAGE}&page=${page}`,
+    `${BLOG_API_URL}/posts?per_page=${PER_PAGE}&page=${page}`,
     { cache: 'no-store' }
   );
   const posts = await res.json();

@@ -20,5 +20,8 @@ Next.js makes requests to the WordPress REST API (`/wp-json/wp/v2/posts`) to fet
 
 1. Clone the repository
 2. Install dependencies with `npm install` or `yarn`
-3. Configure your WordPress API URL in the `.env.local` file
+3. **Create a `.env.local` file in the root of your project and add your WordPress API URL:**
+    ```env
+    NEXT_PUBLIC_BLOG_API_URL=https://blog.ted.com/wp-json/wp/v2
+    ```
 4. Run the project with `npm run dev` or `yarn dev`
